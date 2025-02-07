@@ -76,7 +76,7 @@ async def remove_item(interaction: discord.Interaction, number: int):
 
 
 # ✅ Toggle Bought/Not Bought
-@tree.command(name="check", description="Mark an item as bought or not bought")
+@tree.command(name="toggle", description="Mark an item as bought or not bought")
 async def toggle_item(interaction: discord.Interaction, number: int):
     """Toggle the bought status."""
     global list_message
@@ -88,7 +88,7 @@ async def toggle_item(interaction: discord.Interaction, number: int):
             await list_message.edit(content=format_grocery_list())
 
         await interaction.response.send_message(
-            f"🔄 Changed `{item}` to {'✅ Bought' if not bought else '❌ Not Bought'}.",
+            f"🔄 Toggled `{item}` to {'✅ Bought' if not bought else '❌ Not Bought'}.",
             ephemeral=True,
         )
     else:
